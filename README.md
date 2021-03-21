@@ -10,13 +10,7 @@
 **Installation steps:** 
 1. Run `docker-compose up -d` to start app containers.
 
-2. Run `docker exec -it app bash` in the terminal
-    - Run `composer install`
-    - Run `php artisan key:generate`
-    - Run `php artisan migrate:install`
-    - Run `php artisan migrate`
-
-3. create 'DataProviderX.json' or/and 'DataProviderY.json'storage/app/public like:
+2. create 'DataProviderX.json' or/and 'DataProviderY.json'storage/app/public like:
     - DataProviderX content schema:
         `[
              {
@@ -47,6 +41,12 @@
             1. authorised which will have statusCode 100
             2. decline which will have statusCode 200
             3. refunded which will have statusCode 300
+
+3. Run `docker exec -it app bash` in the terminal
+    - Run `composer install`
+    - Run `php artisan key:generate`
+    - Run `php artisan migrate:install`
+    - Run `php artisan migrate`
 
 **Testing the API** 
 - Just `GET` request to `localhost/api/v1/users` to list all data.
