@@ -12,14 +12,6 @@ use Illuminate\Http\Request;
  */
 class ListParentUsers extends Controller
 {
-    const STATUS_MAPPING_ARRAY =  [
-        1 => 'authorised',
-        2 => 'declined',
-        3 => 'refunded',
-        100 => 'authorised',
-        200 => 'declined',
-        300 => 'refunded'
-    ];
 
     /**
      * @param Request $request
@@ -33,7 +25,7 @@ class ListParentUsers extends Controller
         $criteria['balanceMin'] = $request->query('balanceMin') ?? null;
         $criteria['balanceMax'] = $request->query('balanceMax') ?? null;
         $criteria['currency'] = $request->query('currency') ?? null;
-        $criteria['status'] = $request->query('statusCode') ? ListParentUsers::STATUS_MAPPING_ARRAY[$request->query('statusCode')] : null;
+        $criteria['status'] = $request->query('status') ?? null;
         $users = new ParentUsers();
         return $users->fetch($criteria);
     }
