@@ -37,7 +37,7 @@ class HydrateDataY
             throw new \InvalidArgumentException("should send amount of money");
         }
         if(!empty($object['status'])) {
-            $parentObject->status = HydrateDataX::STATUS_MAPPING_ARRAY[$object['status']];
+            $parentObject->status = HydrateDataY::STATUS_MAPPING_ARRAY[$object['status']];
         } else {
             throw new \InvalidArgumentException("should send status code");
         }
