@@ -9,8 +9,15 @@
 
 **Installation steps:** 
 1. Run `docker-compose up -d` to start app containers.
-
-2. copy 'DataProviderX.json' or/and 'DataProviderY.json' to `storage/app/public` 
+2. Copy .env.example to the same place and rename it to `.env` and upadte it with the db settings from docker-compose.yml file
+    `
+    DB_CONNECTION=mysql
+    DB_HOST=db
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=laravel`
+3. copy 'DataProviderX.json' or/and 'DataProviderY.json' to `storage/app/public` 
     - we have three status for DataProviderX:
         1. authorised which will have statusCode 1
         2. decline which will have statusCode 2
@@ -21,7 +28,7 @@
         2. decline which will have statusCode 200
         3. refunded which will have statusCode 300
 
-3. Run `docker exec -it app bash` in the terminal
+4. Run `docker exec -it app bash` in the terminal
     - Run `composer install`
     - Run `php artisan key:generate`
     - Run `php artisan migrate:install`
